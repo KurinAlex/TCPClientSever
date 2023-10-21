@@ -6,7 +6,7 @@ var listener = new TcpListener(Data.IPEndPoint);
 
 try
 {
-    listener.Start();
+    listener.Start(16);
     Console.WriteLine("Server started, listening for connections...");
     while (true)
     {
@@ -33,6 +33,7 @@ async Task ProcessClient()
 
         string? name = await reader.ReadLineAsync();
         Console.WriteLine($"{name} joined the server");
+
         await writer.WriteLineAsync($"Welcome to the server, {name}");
         await writer.FlushAsync();
     }
