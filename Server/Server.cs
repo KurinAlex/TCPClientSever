@@ -1,8 +1,9 @@
-﻿using System.Net.Sockets;
+﻿using System.Net;
+using System.Net.Sockets;
 
 using Utility;
 
-var listener = new TcpListener(Data.IPEndPoint);
+var listener = new TcpListener(IPAddress.Any, Data.Port);
 
 try
 {
